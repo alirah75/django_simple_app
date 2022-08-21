@@ -1,0 +1,10 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="{% url 'home' %}">Home</a>
+  {% if request.user.is_authenticated %}
+    <p>{{ request.user.username }}</p>
+    <a class="navbar-brand" href="{% url 'logout' %}">Logout</a>
+  {% else %}
+    <a class="navbar-brand" href="accounts/register">Register</a>
+    <a class="navbar-brand" href="accounts/login">Login</a>
+  {% endif %}
+</nav>
